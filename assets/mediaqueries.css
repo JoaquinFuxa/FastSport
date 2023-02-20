@@ -5,7 +5,7 @@
     
     .contact-conteiner{
         display: block;
-        background: #f85b00;
+        background: linear-gradient(to top, #F2A007, #e35e11);
     }
 
     .contact-info h4,
