@@ -1,0 +1,59 @@
+@media (max-width: 780px) {
+    #contact {
+        width: 90%;
+    }
+    
+    .contact-conteiner{
+        display: block;
+        background: linear-gradient(to bottom, rgba(57,162,251,1) 0%, rgba(98,217,249,1) 50%, rgba(55,98,252,1) 100%);
+    }
+
+    .contact-info h4,
+    .contact-info ul,
+    .contact-info p {
+    text-align: center;
+    margin: 0 0 1rem 0;
+    }
+
+    .navbar {
+        gap: 10px;
+    }
+
+    .menu{
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar-list {
+        position: absolute;
+        top: 50px;
+        left: 5%;
+        right: 5%;
+        width: 90%;
+        flex-direction: column;
+        background: rgba(57,162,251,1);
+        border: 2px solid white;
+        border-top: 0px;
+        border-radius: 0px 0px 15px 15px;
+        align-items: flex-start;
+        padding: 45px 30px;
+        gap: 25px;
+        z-index: 2;
+        display: none;
+    }
+
+    .navbar-list a{
+        font-size: 18px;
+        color: rgb(0, 0, 0);
+    }
+
+    #menu-toggle:checked + .navbar-list {
+        display: flex;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-info h1 {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    background: url(./img/22973.jpg) no-repeat center top;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 320px;
+    height: 440px;
+    background: linear-gradient(45deg, rgba(57,162,251,1) 0%, rgba(98,217,249,1) 50%, rgba(55,98,252,1) 100%);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 10px;
+    animation: fade 1.4s ease-in, slide-down 1.2s ease-in-out;
+}
+
+.register-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 320px;
+    height: 500px;
+    background: linear-gradient(45deg, rgba(57,162,251,1) 0%, rgba(98,217,249,1) 50%, rgba(55,98,252,1) 100%);
+    border-radius: 12px;
+    box-sizing: border-box;
+    padding: 10px;
+    animation: fade 1.4s ease-in, slide-down 1.2s ease-in-out;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.login-box h1,
+.register-box h1 {
+    font-size: 22px;
+}
+
+.login-box form,
+.register-box form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.login-box input,
+.register-box input{
+    border: none;
+    border: 2px solid black;
+    border-radius: 24px;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    width: 200px;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    text-align: center;
+    transition: 0.25s;
+}
+
+.login-box input:focus,
+.register-box input:focus {
+    width: 280px;
+    border-color: rgb(10, 91, 168);
+}
+
+
+.boton{
+    color: black;
+    background: linear-gradient(to top, #00c6ff, #0072ff);
+    border: 2px solid rgb(44, 181, 255);
+    width: 120px;
+    padding: 10px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    transition:  .6s ease;
+    cursor: pointer;
+}
+
+.boton:hover{
+    background: #86d5ff;
+    border: 2px solid rgb(44, 181, 255);
+    box-shadow: 0 0 10px 0 var(--primary) inset, 0 0 10px 4px var(--primary);
+    border-radius: 20px;
+}
+
+.links {
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgb(0, 0, 0);
+    transition: 0.4s;
+}
+
+.links:hover {
+    color: white;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}

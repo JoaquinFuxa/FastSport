@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastSport</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <link rel="stylesheet" href="./assets/mediaqueries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="./assets/img/logo2.png" alt="LogoPagina" class="logo" />
+      <nav class="navbar">
+        <label for="menu-toggle">
+          <img
+            src="./assets/img/Hamburger_icon.svg.png"
+            alt="MenuHamburguesa"
+            class="menu"
+          />
+        </label>
+        <input type="checkbox" id="menu-toggle" />
+        <ul class="navbar-list">
+          <li><a href="#hero">Inicio</a></li>
+          <li><a href="#info">Nostros</a></li>
+          <li><a href="#productos">Produtos</a></li>
+          <li><a href="#contact">Contacto</a></li>
+          <li><a href="./pages/login.html">Login</a></li>
+          <li><a href="./pages/register.html">Register</a></li>
+        </ul>
+
+        <label for="cart-toggle" class="cart-label">
+          <i class="fa-solid fa-cart-shopping cart-icon"></i>
+        </label>
+        <input type="checkbox" id="cart-toggle" />
+        <div class="cart">
+          <h2>Tu compra</h2>
+
+          <div class="cart-item">
+            <img src="./assets/img/sm-g780_g781_s20fe_front_zg.png" alt="S20" />
+            <div class="item-info">
+              <h3 class="item-title">Samsung S20</h3>
+              <span class="item-price">100.000$</span>
+            </div>
+          </div>
+
+          <span class="divider"></span>
+          <div class="cart-total">
+            <p>Total:</p>
+            <span>100.000$</span>
+          </div>
+          <a class="boton" href="./pages/login.html">Comprar</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <div class="skewed"></div>
+        <div class="hero-info">
+          <h1>Lleva Tu Rendimiento Al Maximo</h1>
+          <p>Calzados para los mas exigentes deportistas</p>
+          <div class="botones">
+            <a class="boton" href="#productos">Comprar</a>
+            <a class="boton" href="#info">Mas info</a>
+          </div>
+        </div>
+      </section>
+      <section id="info">
+        <h2>Hecho por deportistas, para deportistas</h2>
+        <h3>
+          Descubri la amplia variedad de calzados y el que mejor se adapte a
+          vos:
+        </h3>
+        <div class="info-cards-container">
+          <div class="info-card">
+            <img
+              src="./assets/img/icons8-envío-gratuito-50.png"
+              alt="LogoEnvio"
+            />
+            <h4>Envio Gratis a todo el Pais</h4>
+            <p>
+              Envio sin cargo dentro del pais con la compra de cualquiera de
+              nuestros calzados.
+            </p>
+          </div>
+          <div class="info-card">
+            <img src="./assets/img/icons8-garantía-60.png" alt="LogoGarantia" />
+            <h4>Garantia Aseguradas</h4>
+            <p>12 meses de garantia en cualquiera de nuestros productos.</p>
+          </div>
+          <div class="info-card">
+            <img
+              src="./assets/img/icons8-buena-calidad-60.png"
+              alt="LogoCalidad"
+            />
+            <h4>Calidad y Confianza</h4>
+            <p>
+              Calzados confeccionados con materiales de alta calidad, sometido a
+              cientos de pruebas, avalados por los deportistas mas exigentes.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section id="productos">
+        <h2>SmartPhones</h2>
+        <div class="categories">
+          <button class="category active">Samsung</button>
+          <button class="category">Motorola</button>
+          <button class="category">Iphone</button>
+          <button class="category">Xiaomi</button>
+          <button class="category">Accesorios</button>
+          <button class="category">Plegables</button>
+        </div>
+        <div class="producto-container">
+          <div class="producto">
+            <img
+              src="./assets/img/sm-g780_g781_s20fe_front_zg.png"
+              alt="SamsungS20"
+            />
+            <h3>Samsung S20 FE 6.5" 6/128 5G menta</h3>
+            <p>100.000$</p>
+            <a class="boton" href="#">Añadir</a>
+          </div>
+
+          <div class="producto">
+            <img
+              src="./assets/img/sm-a135_galaxy-a13-lte_black_front_1.png"
+              alt="SamsungA13"
+            />
+            <h3>Samsung Galaxy A13 64GB 6.6" 5G negro</h3>
+            <p>59.999$</p>
+            <a class="boton" href="#">Añadir</a>
+          </div>
+
+          <div class="producto">
+            <img
+              src="./assets/img/sm-f721_zflip4_fronttabletop_graphite_220527_1.png"
+              alt="SamsungZFLIP"
+            />
+            <h3>Samsung ZFLIP4 6.7" 8/128GB gris</h3>
+            <p>242.000$</p>
+            <a class="boton" href="#">Añadir</a>
+          </div>
+
+          <div class="producto">
+            <img
+              src="./assets/img/sm-m236_galaxy_m23_5g_deepgreen_frontback_raw_rgb.png"
+              alt="SamsungM23"
+            />
+            <h3>Samsung M23 6.4" 4/128GB 5G verde</h3>
+            <p>79.999$</p>
+            <a class="boton" href="#">Añadir</a>
+          </div>
+
+          <div class="producto">
+            <img
+              src="./assets/img/sm-s901_galaxys22_front2_phantomblack_211122.png"
+              alt="SamsungS22"
+            />
+            <h3>Samsung S22 6.1" 8/128GB Black Phanthom</h3>
+            <p>180.000$</p>
+            <a class="boton" href="#">Añadir</a>
+          </div>
+
+          <div class="producto">
+            <img src="./assets/img/te2806-1.png" alt="SamsungS21" />
+            <h3>Samsung S21 FE 6/128GB 6.2" Oliva</h3>
+            <p>169.999$</p>
+            <a class="boton" href="#">Añadir</a>
+          </div>
+        </div>
+        <a>Ver mas</a>
+      </section>
+
+      <section id="contact">
+        <h4 class="logo-contact">Contact <span>Us</span></h4>
+
+        <div class="contact-conteiner">
+          <div class="contact-form">
+            <h4>Contact Us</h4>
+            <form>
+              <p>
+                <label for="nombre">Fullname</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  placeholder="Ingrese su nombre"
+                />
+              </p>
+              <p>
+                <label for="correo">Email Address</label>
+                <input
+                  type="email"
+                  id="correo"
+                  placeholder="Ingrese su email"
+                />
+              </p>
+              <p>
+                <label for="phone">Phone</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="Ingrese su telefono"
+                />
+              </p>
+              <p>
+                <label for="asunto">Asunto</label>
+                <input type="text" id="asunto" placeholder="Ingrese Asunto" />
+              </p>
+              <p class="block">
+                <label for="texto">Message</label>
+                <textarea
+                  id="texto"
+                  rows="3"
+                  placeholder="Escriba un mensaje"
+                ></textarea>
+              </p>
+              <p class="botones block">
+                <a class="boton" href="#">Send</a>
+              </p>
+            </form>
+          </div>
+
+          <div class="contact-info">
+            <h4>More Info</h4>
+            <ul>
+              <li><i class="fa-solid fa-location-dot"></i> Cordoba Capital</li>
+              <li><i class="fa-solid fa-phone"></i> +54 3513207202</li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                fastsport@gmail.com
+              </li>
+            </ul>
+            <p>
+              Ante los derechos del consumidor, porfavor comunicarse a traves
+              del siguiente formulario de contacto.
+            </p>
+            <p>FasrSport</p>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div>
+          <ul class="footer-links">
+            <li><a href="#">Terminos de Uso</a></li>
+            <li><a href="#">Trabaja con Nosotros</a></li>
+            <li><a href="#">Soporte</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
