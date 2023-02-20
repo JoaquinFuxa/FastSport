@@ -287,6 +287,51 @@ main {
 
 /* SECCION INFO */
 
+.contenedor-slider
+{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 600px;
+    padding: 0px 40px;
+}
+
+/* .slider img {
+    height: 400px;
+} */
+
+.icono-izquierdo, .icono-derecho
+{
+    width: 5%;
+    z-index: 1;
+}
+
+.icono-izquierdo img, .icono-derecho img
+{
+   width: 100%;
+
+}
+
+.slider-screen
+{
+    width: 90%;
+    border-radius: 12px;
+    box-shadow: 5px 5px 25px black;
+    overflow: hidden;
+}
+
+.slider
+{
+    display: flex;
+    width: 400%;
+}
+
+.slider .img-slider
+{
+   width: 25%;
+}
+
+
 #info {
     padding: 90px 10px;
     max-width: 1200px;
