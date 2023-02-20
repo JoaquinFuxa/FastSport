@@ -27,7 +27,7 @@ header {
     padding: 0px 30px 0px 30px;
     position: fixed;
     z-index: 2;
-    animation: fade 2.2s ease-in, slide-down 3s ease-in-out;
+    animation: fade 2s ease-in, slide-down 1.5s ease-in-out;
 }
 
 .logo {
@@ -500,7 +500,7 @@ main {
     background: none;
     outline: 0;
     color: #ffff;
-    border-bottom: 1px solid #0300ad;
+    border-bottom: 1px solid #000000;
 }
 
 .contact-info h4,
