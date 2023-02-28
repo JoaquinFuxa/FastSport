@@ -19,47 +19,55 @@
     <header>
       <img src="./assets/img/logo2.png" alt="LogoPagina" class="logo" />
       <nav class="navbar">
-        <label for="menu-toggle">
+        <div class="menu-label">
           <img
             src="./assets/img/Hamburger_icon.svg.png"
-            alt="MenuHamburguesa"
-            class="menu"
+            alt="menuH"
+            class="menu-icon"
           />
-        </label>
-        <input type="checkbox" id="menu-toggle" />
+        </div>
+
         <ul class="navbar-list">
-          <li><a href="#hero">Inicio</a></li>
-          <li><a href="#info">Nostros</a></li>
-          <li><a href="#productos">Produtos</a></li>
-          <li><a href="#contact">Contacto</a></li>
-          <li><a href="./pages/login.html">Login</a></li>
-          <li><a href="./pages/register.html">Register</a></li>
+          <li><a class="navbar-link" href="#hero">Inicio</a></li>
+          <li><a class="navbar-link" href="#info">Nostros</a></li>
+          <li><a class="navbar-link" href="#productos">Produtos</a></li>
+          <li><a class="navbar-link" href="#contact">Contacto</a></li>
+          <li><a class="navbar-link" href="./pages/login.html">Login</a></li>
+          <li>
+            <a class="navbar-link" href="./pages/register.html">Register</a>
+          </li>
         </ul>
 
-        <label for="cart-toggle" class="cart-label">
-          <i class="fa-solid fa-cart-shopping cart-icon"></i>
-        </label>
-        <input type="checkbox" id="cart-toggle" />
+        <div class="cart-label">
+          <i class="fa-solid fa-cart-shopping cart-icon"
+            ><div class="cart-bubble">0</div></i
+          >
+        </div>
+
         <div class="cart">
           <h2>Tu compra</h2>
 
-          <div class="cart-item">
+          <div class="cart-container"></div>
+          <!-- <div class="cart-item">
             <img src="./assets/img/sm-g780_g781_s20fe_front_zg.png" alt="S20" />
             <div class="item-info">
               <h3 class="item-title">Samsung S20</h3>
               <span class="item-price">100.000$</span>
             </div>
-          </div>
+          </div> -->
 
           <span class="divider"></span>
           <div class="cart-total">
             <p>Total:</p>
             <span>100.000$</span>
           </div>
-          <a class="boton" href="./pages/login.html">Comprar</a>
+          <button class="btn-buy">Comprar</button>
+          <button class="btn-delete">Vaciar carrito</button>
         </div>
       </nav>
+      <div class="overlay"></div>
     </header>
+
     <main>
       <section id="hero">
         <div class="skewed"></div>
@@ -149,76 +157,24 @@
         </div>
       </section>
       <section id="productos">
-        <h2>SmartPhones</h2>
+        <h2>Calzados</h2>
+
+        <!---------------- CATEGORIAS ----------------->
         <div class="categories">
-          <button class="category active">Samsung</button>
-          <button class="category">Motorola</button>
-          <button class="category">Iphone</button>
-          <button class="category">Xiaomi</button>
-          <button class="category">Accesorios</button>
-          <button class="category">Plegables</button>
+          <button class="category" data-category="Lifestyle">Lifestyle</button>
+          <button class="category" data-category="Running">Running</button>
+          <button class="category" data-category="Basketball">
+            Basketball
+          </button>
+          <button class="category" data-category="Soccer">Soccer</button>
         </div>
-        <div class="producto-container">
-          <div class="producto">
-            <img
-              src="./assets/img/sm-g780_g781_s20fe_front_zg.png"
-              alt="SamsungS20"
-            />
-            <h3>Samsung S20 FE 6.5" 6/128 5G menta</h3>
-            <p>100.000$</p>
-            <a class="boton" href="#">Añadir</a>
-          </div>
 
-          <div class="producto">
-            <img
-              src="./assets/img/sm-a135_galaxy-a13-lte_black_front_1.png"
-              alt="SamsungA13"
-            />
-            <h3>Samsung Galaxy A13 64GB 6.6" 5G negro</h3>
-            <p>59.999$</p>
-            <a class="boton" href="#">Añadir</a>
-          </div>
-
-          <div class="producto">
-            <img
-              src="./assets/img/sm-f721_zflip4_fronttabletop_graphite_220527_1.png"
-              alt="SamsungZFLIP"
-            />
-            <h3>Samsung ZFLIP4 6.7" 8/128GB gris</h3>
-            <p>242.000$</p>
-            <a class="boton" href="#">Añadir</a>
-          </div>
-
-          <div class="producto">
-            <img
-              src="./assets/img/sm-m236_galaxy_m23_5g_deepgreen_frontback_raw_rgb.png"
-              alt="SamsungM23"
-            />
-            <h3>Samsung M23 6.4" 4/128GB 5G verde</h3>
-            <p>79.999$</p>
-            <a class="boton" href="#">Añadir</a>
-          </div>
-
-          <div class="producto">
-            <img
-              src="./assets/img/sm-s901_galaxys22_front2_phantomblack_211122.png"
-              alt="SamsungS22"
-            />
-            <h3>Samsung S22 6.1" 8/128GB Black Phanthom</h3>
-            <p>180.000$</p>
-            <a class="boton" href="#">Añadir</a>
-          </div>
-
-          <div class="producto">
-            <img src="./assets/img/te2806-1.png" alt="SamsungS21" />
-            <h3>Samsung S21 FE 6/128GB 6.2" Oliva</h3>
-            <p>169.999$</p>
-            <a class="boton" href="#">Añadir</a>
-          </div>
-        </div>
-        <a>Ver mas</a>
+        <!--------------- PRODUCTOS --------------->
+        <div class="producto-container"></div>
+        <button class="btn-load">Ver mas</button>
       </section>
 
+      <!----------------- CONTACTO ----------------->
       <section id="contact">
         <h4 class="logo-contact">Contact <span>Us</span></h4>
 
@@ -287,6 +243,7 @@
         </div>
       </section>
 
+      <!---------------------- FOOTER -------------------------------->
       <footer>
         <div>
           <ul class="footer-links">
@@ -297,6 +254,8 @@
         </div>
       </footer>
     </main>
-    <script src="script.js"></script>
+    <div class="add-modal"></div>
+    <script src="data.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
