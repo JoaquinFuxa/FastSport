@@ -71,4 +71,34 @@
     .footer-links a{
     font-size: 10px;
     }
+
+    .cart {
+        min-width: unset;
+      }
+
+    .cart-container {
+        align-items: center;
+    }
+    
+    .cart-item {
+        width: 70%;
+        justify-content: center;
+        gap: 20px;
+        flex-direction: column;
+    }
+      
+    .item-info {
+        text-align: center;
+    }
+      
+    .cart-total span {
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+    .producto {
+        width: 270px;
+        height: 430px;
+    }
+      
 }
