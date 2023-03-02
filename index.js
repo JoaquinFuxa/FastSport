@@ -8,19 +8,16 @@ const overlay = document.querySelector(".overlay");
 const cartMenu = document.querySelector(".cart");
 const cartBubble = document.querySelector(".cart-bubble");
 const cartBtn = document.querySelector(".cart-label");
-
-
-// Contenedor de productos del carrito
 const productsCart = document.querySelector(".cart-container");
-//El total en precio del carrito
 const total = document.querySelector(".total");
-// Botón de comprar
 const buyBtn = document.querySelector(".btn-buy");
-
-//  Modal de agregado al carrito.
 const successModal = document.querySelector(".add-modal");
-//  Modal de agregado al carrito.
 const deleteBtn = document.querySelector(".btn-delete");
+const Slider = document.querySelector(".slider");
+const IconoDerecho = document.querySelector(".icono-derecho");
+const IconoIzuierdo = document.querySelector(".icono-izquierdo");
+const Imagenes = document.querySelectorAll(".img-slider").length;
+Contador = 0;
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -36,7 +33,7 @@ const renderProduct = (product) => {
     <h3>${name}</h3>
     <p>${bid}$</p>
     <button
-      class="boton"
+      class="boton btn-add"
       data-id="${id}"
       data-name="${name}"
       data-bid="${bid}"
@@ -165,12 +162,185 @@ const closeOnOverlayClick = () => {
 	overlay.classList.remove("show-overlay");
 };
 
-// ----------Slider Automatico-------------------------------------------
-var Slider = document.querySelector(".slider");
-var IconoDerecho = document.querySelector(".icono-derecho");
-var IconoIzuierdo = document.querySelector(".icono-izquierdo");
-var Imagenes = document.querySelectorAll(".img-slider").length;
-Contador = 0;
+const renderCardProduct = (cartProduct) => {
+	const { id, name, bid, img, quantity } = cartProduct;
+	return `
+	<div class="cart-item">
+		<img src=${img} alt="zapa" />
+		<div class="item-info">
+	  		<h3 class="item-title">${name}</h3>
+	  		<span class="item-price">${bid}</span>
+		</div>
+		<div class="item-handler">
+			<span class="quantity-handler down" data-id=${id}>-</span>
+			<span class="item-quantity">${quantity}</span>
+			<span class="quantity-handler up" data-id=${id}>+</span>
+		</div>
+  	</div>
+	`;
+};
+
+const renderCart = () => {
+	if (!cart.length) {
+		productsCart.innerHTML = `<p class="empty-msg">No hay productos en el carrito.</p>`;
+		return;
+	}
+	productsCart.innerHTML = cart.map(renderCardProduct).join("");
+};
+
+const getCartTotal = () => {
+	return cart.reduce((acc, cur) => {
+		return acc + Number(cur.bid) * cur.quantity;
+	}, 0);
+};
+
+const showTotal = () => {
+	total.innerHTML = `${getCartTotal().toFixed(2)} ARS$`;
+};
+
+const renderCartBubble = () => {
+	cartBubble.textContent = cart.reduce((acc, cur) => {
+		return acc + cur.quantity;
+	}, 0);
+};
+
+const disableBtn = (btn) => {
+	if (!cart.length) {
+		btn.classList.add("disabled");
+	} else {
+		btn.classList.remove("disabled");
+	}
+};
+
+const checkCartState = () => {
+	saveLocalStorage(cart);
+	renderCart();
+	showTotal();
+	disableBtn(buyBtn);
+	disableBtn(deleteBtn);
+	renderCartBubble();
+};
+
+const addProduct = (e) => {
+	if (!e.target.classList.contains("btn-add")) {
+		return;
+	}
+	const { id, name, bid, img } = e.target.dataset;
+
+	const product = productData(id, name, bid, img);
+
+	if (isExistingCartProduct(product)) {
+		addUnitToProduct(product);
+		showSuccessModal("Se agregó una unidad del producto al carrito");
+	} else {
+		createCartProduct(product);
+		showSuccessModal("El producto se ha agregado al carrito");
+	}
+
+	checkCartState();
+};
+
+const productData = (id, name, bid, img) => {
+	return { id, name, bid, img };
+};
+
+const isExistingCartProduct = (product) => {
+	return cart.find((item) => {
+		return item.id === product.id;
+	});
+};
+
+const addUnitToProduct = (product) => {
+	cart = cart.map((cartProduct) => {
+		return cartProduct.id === product.id
+			? { ...cartProduct, quantity: cartProduct.quantity + 1 }
+			: cartProduct;
+	});
+};
+
+const showSuccessModal = (msg) => {
+	successModal.classList.add("active-modal");
+	successModal.textContent = msg;
+	setTimeout(() => {
+		successModal.classList.remove("active-modal");
+	}, 1500);
+};
+
+const createCartProduct = (product) => {
+	cart = [
+		...cart,
+		{
+			...product,
+			quantity: 1,
+		},
+	];
+};
+
+const handleMinusBtnEvent = (id) => {
+	const existingCartProduct = cart.find((item) => {
+		return item.id === id;
+	});
+
+	if (existingCartProduct.quantity === 1) {
+		if (window.confirm("¿Desea eliminar el producto del carrito?")) {
+			removeProductFromCart(existingCartProduct);
+		}
+		return;
+	}
+
+	substractProductUnit(existingCartProduct);
+};
+
+const handlePlusBtnEvent = (id) => {
+	const existingCartProduct = cart.find((item) => {
+		return item.id === id;
+	});
+
+	addUnitToProduct(existingCartProduct);
+};
+
+const removeProductFromCart = (existingProduct) => {
+	cart = cart.filter((product) => product.id !== existingProduct.id);
+	checkCartState();
+};
+
+const substractProductUnit = (existingProduct) => {
+	cart = cart.map((product) => {
+		return product.id === existingProduct.id
+			? { ...product, quantity: Number(product.quantity) - 1 }
+			: product;
+	});
+};
+
+const handleQuantity = (e) => {
+	if (e.target.classList.contains("down")) {
+		handleMinusBtnEvent(e.target.dataset.id);
+	} else if (e.target.classList.contains("up")) {
+		handlePlusBtnEvent(e.target.dataset.id);
+	}
+	checkCartState();
+};
+
+const resetCartItems = () => {
+	cart = [];
+	checkCartState();
+};
+
+const completeCartAction = (confirmMsg, successMsg) => {
+	if (!cart.length) return;
+	if (window.confirm(confirmMsg)) {
+		resetCartItems();
+		alert(successMsg);
+	}
+};
+
+const completeBuy = () => {
+	completeCartAction("¿Desea completar su compra?", "¡Gracias por su compra!");
+};
+
+const deleteCart = () => {
+	completeCartAction("¿Desea eliminar su carrito?", "Carrito eliminado");
+};
 
 function MoverSlider()
   {
@@ -198,7 +368,6 @@ function MoverIzquierda()
     MoverSlider();
   }
 
-// -----------------------------------------------------
 const init = () => {
   renderProducts();
   categories.addEventListener("click", applyFilter);
@@ -209,7 +378,16 @@ const init = () => {
   window.addEventListener("scroll", closeOnScroll);
   overlay.addEventListener("click", closeOnOverlayClick)
   IconoDerecho.addEventListener("click", MoverDerecha);
-  IconoIzuierdo.addEventListener("click", MoverIzquierda)
+  IconoIzuierdo.addEventListener("click", MoverIzquierda);
+  document.addEventListener("DOMContentLoaded", renderCart);
+  document.addEventListener("DOMContentLoaded", showTotal);
+  renderCartBubble();
+  disableBtn(buyBtn);
+  disableBtn(deleteBtn)
+  products.addEventListener("click", addProduct);
+  productsCart.addEventListener("click", handleQuantity);
+  buyBtn.addEventListener("click", completeBuy);
+  deleteBtn.addEventListener("click", deleteCart)
 };
   
 init();
